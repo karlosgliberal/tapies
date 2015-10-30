@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tachikoma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta property="og:title" content="Metaphorpsum"/>
+    <meta property="og:image" content="http://metaphorpsum.com/images/logo.png"/>
+    <meta property="og:site_name" content="Metaphorpsum"/>
+    <meta property="og:description" content="A wise, if not slightly pedantic, generator of metaphor."/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="/javascripts/site.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.hotkeys.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="block">
+        <div id="humanos" class="humanos"><h1 style="color:red;width:70px;"></h1></div>
+      </div>
+      <div class="block">
+        <div class="title section">
+          <h3 data-name="title">Tachikoma</h3>
+          <p>Psudo-Artificial generator-metaphor of tapies archived</p>
+        </div>
+      </div>
+      <div class="block white">
+        <div class="metaphor section">
+          <blockquote><p id="sentencia" class="metaphor-text"><%= sentences %></p></blockquote>
+        </div>
+      </div>
+      <div class="block">
+        <div class="credits section section--short">
+          <p>Inspired by <a href="http://kylestetz.com">Kyle Stetz</a>. Get the source code on <a href="https://github.com/kylestetz/metaphorpsum">GitHub</a>.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
