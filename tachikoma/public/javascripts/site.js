@@ -7,7 +7,11 @@ $( function() {
 
   $('.wrap').particleground({
     dotColor: '#000',
-    lineColor: '#000'
+    lineColor: '#000',
+    density: 5000,
+    particleRadius: 7,
+    curvedLines: false,
+    parallax: false
   });
 
   humanosRef.on("value", function(snapshot) {
