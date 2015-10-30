@@ -73,7 +73,6 @@ p
 {
   .narrator;
   color: @dark;
-  letter-spacing: 0.06em;
   line-height: 1.5em;
 }
 
@@ -91,7 +90,7 @@ blockquote
 
   p
   {
-    font-size: 24px;
+    font-size: 40px;
   }
   &:before
   {
@@ -100,7 +99,7 @@ blockquote
     left: -30px;
     content: open-quote;
     .narrator;
-    font-size: 50px;
+    font-size: 80px;
   }
   &:after
   {
@@ -109,7 +108,7 @@ blockquote
     bottom: -40px;
     content: close-quote;
     .narrator;
-    font-size: 50px;
+    font-size: 80px;
   }
 }
 
@@ -171,8 +170,8 @@ body
 
   .section
   {
-    max-width: 960px;
-    padding: 80px 40px;
+    max-width: 100%;
+    padding: 80px 120px;
 
     &.section--short
     {
@@ -185,9 +184,8 @@ body
     h3
     {
       display: inline-block;
-      // border-bottom: 4px solid @red;
-      color: @red;
-
+      color: #C0BDBD;
+      margin-bottom: 0;
       -webkit-touch-callout: none;
       -webkit-user-select: none;
       -khtml-user-select: none;
@@ -207,8 +205,8 @@ body
 
   .metaphor
   {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 
     .metaphor-text
     {
