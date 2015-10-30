@@ -6,12 +6,13 @@ $( function() {
   var estanVivos;
 
   $('.wrap').particleground({
-    dotColor: '#000',
-    lineColor: '#000',
+    dotColor: '#ccc',
+    lineColor: '#ccc',
     density: 5000,
-    particleRadius: 7,
+    particleRadius: 5,
     curvedLines: false,
-    parallax: false
+    parallax: false,
+    lineWidth: 0.5
   });
 
   humanosRef.on("value", function(snapshot) {
