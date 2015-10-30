@@ -5,6 +5,11 @@ $( function() {
   var humanosRef = ref.child("humanos");
   var estanVivos;
 
+  $('.wrap').particleground({
+    dotColor: '#000',
+    lineColor: '#000'
+  });
+
   humanosRef.on("value", function(snapshot) {
     estanVivos = snapshot.val();
   }, function (errorObject) {
