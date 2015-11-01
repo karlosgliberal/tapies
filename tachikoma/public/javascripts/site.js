@@ -21,9 +21,9 @@ $( function() {
     console.log("The read failed: " + errorObject.code);
   });
 
-  humanosRef.set({
-    vivo:false
-  });
+  // humanosRef.set({
+  //   vivo:false
+  // });
 
   $(document).bind('keydown', 'a', function assets() {
     $(".wrap").css("border-style", "dotted");
