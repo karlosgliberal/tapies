@@ -39,7 +39,7 @@ $( function() {
     maxEnergy: 20,
     wait: function() {
       // photosynthesis :)
-      this.energy += 4;
+      this.energy += 2;
     },
     move: false,
     reproduceLv: 0.65
