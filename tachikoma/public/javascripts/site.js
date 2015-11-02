@@ -21,7 +21,7 @@ $( function() {
     console.log("The read failed: " + errorObject.code);
   });
 
-  /// humanosRef.set({
+  // humanosRef.set({
   //   vivo:false
   // });
 
