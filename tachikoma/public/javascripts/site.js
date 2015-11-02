@@ -4,16 +4,65 @@ $( function() {
   var frasesRef = ref.child("frases");
   var humanosRef = ref.child("humanos");
   var estanVivos;
+  window.terra;
+  var width = $(window).width() / 10;
+  var Submundo = function(){
+    this.terra = window.terra;
+    this.bbTerrarium = new terra.Terrarium(width, 5, {id:'terra'});
+  };
 
-  $('.wrap').particleground({
-    dotColor: '#ccc',
-    lineColor: '#ccc',
-    density: 5000,
-    particleRadius: 5,
-    curvedLines: false,
-    parallax: false,
-    lineWidth: 0.5
+  Submundo.prototype.registerCreature = function(obj){
+    this.terra.registerCreature(obj);
+  };
+
+  Submundo.prototype.grid = function(array){
+    this.bbTerrarium.grid = this.bbTerrarium.makeGridWithDistribution(array);
+  };
+
+  Submundo.prototype.action = function(act){
+    if(act == 'animate'){
+      this.bbTerrarium.animate(5000);
+    } else if(act == 'stop'){
+      this.bbTerrarium.stop();
+    } else if(act == 'destroy'){
+      this.bbTerrarium.destroy();
+    }
+  };
+
+  var miMundo = new Submundo();
+
+  miMundo.registerCreature({
+    type: 'plant',
+    color: [173, 173, 173],
+    size: 10,
+    initialEnergy: 5,
+    maxEnergy: 20,
+    wait: function() {
+      // photosynthesis :)
+      this.energy += 4;
+    },
+    move: false,
+    reproduceLv: 0.65
   });
+
+  miMundo.registerCreature({
+    type: 'brute',
+    color: [29, 30, 25],
+    maxEnergy: 50,
+    initialEnergy: 2,
+    size: 20
+  });
+
+  miMundo.registerCreature({
+    type: 'bully',
+    color: [147, 112, 219],
+    initialEnergy: 20,
+    reproduceLv: 0.6,
+    sustainability: 3
+  });
+  miMundo.grid([['plant', 50], ['brute', 5], ['bully', 5]]);
+  miMundo.action('animate');
+
 
   humanosRef.on("value", function(snapshot) {
     estanVivos = snapshot.val();
@@ -21,15 +70,7 @@ $( function() {
     console.log("The read failed: " + errorObject.code);
   });
 
-  // humanosRef.set({
-  //   vivo:false
-  // });
-
   $(document).bind('keydown', 'a', function assets() {
-    $(".wrap").css("border-style", "dotted");
-    $(".wrap").css("border-width", "2px");
-    $(".wrap").css("border-color", "red");
-    $('#humanos').hide().html('<h1 style="color:red;width:50px;">Human Detect</h1>').fadeIn('slow');
     loopFrases = setInterval(function(){
       $.get( "/sentencia", function( data ) {
         frasesRef.child(Date.now()).set({
@@ -37,7 +78,6 @@ $( function() {
         });
       });
     }, 2000);
-    $('#log').html(loopFrases);
     humanosRef.set({
       vivo:true
     });
@@ -45,6 +85,7 @@ $( function() {
   });
 
   $(document).bind('keydown', 's', function assets() {
+    miMundo.action('animate');
     clearInterval(loopFrases);
     humanosRef.set({
       vivo:false
@@ -52,9 +93,6 @@ $( function() {
   });
 
   var humanosVivos = function(frase){
-    $(".wrap").css("border-style", "dotted");
-    $(".wrap").css("border-width", "2px");
-    $(".wrap").css("border-color", "red");
     $('#sentencia').hide().html(frase.frase).fadeIn('slow');
     $('#humanos').hide().html('<h1 style="color:red;width:50px;">Human Detect</h1>').fadeIn('slow');
   }
@@ -68,6 +106,7 @@ $( function() {
 
   frasesRef.on("child_added", function(snapshot, prevChildKey){
     if(estanVivos.vivo == true){
+      miMundo.action('stop');
       var frase = snapshot.val();
       humanosVivos(frase);
     }
@@ -76,6 +115,7 @@ $( function() {
   humanosRef.on("child_changed", function(snapshot, prevChildKey){
     var estado = snapshot.val();
     if(estado == false){
+      miMundo.action('animate');
       humanosMuerto();
     }
   });
