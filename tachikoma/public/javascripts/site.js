@@ -98,14 +98,15 @@ $( function() {
 
   var humanosVivos = function(frase){
     $('canvas').remove();
-    criaturas.plant.color = [242, 50, 66]
-    criaturas.plant.type = 'sangre';
-    var humanMundo = new Submundo();
-    humanMundo.registerCreature(criaturas.plant);
-    humanMundo.registerCreature(criaturas.brute);
-    humanMundo.registerCreature(criaturas.bully);
-    humanMundo.grid([['sangre', 50], ['brute', 5], ['bully', 5]]);
-    humanMundo.action('animate');
+    miMundo.action('pause');
+    // criaturas.plant.color = [242, 50, 66]
+    // criaturas.plant.type = 'sangre';
+    // var humanMundo = new Submundo();
+    // humanMundo.registerCreature(criaturas.plant);
+    // humanMundo.registerCreature(criaturas.brute);
+    // humanMundo.registerCreature(criaturas.bully);
+    // humanMundo.grid([['sangre', 50], ['brute', 5], ['bully', 5]]);
+    // humanMundo.action('animate');
 
     $('#sentencia').hide().html(frase.frase).fadeIn('slow');
     $('.human').fadeIn();
