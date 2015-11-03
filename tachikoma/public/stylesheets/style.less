@@ -165,12 +165,15 @@ body
 
 .wrap
 {
-  margin: 0 auto;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    display: table;
 
   .section
   {
     max-width: 100%;
-    padding: 80px 120px;
+    padding: 80px 120px 15px 120px;
 
     &.section--short
     {
@@ -418,3 +421,17 @@ canvas#terra {
     animation:blink normal 1.5s infinite ease-in-out; /* Opera */
     width: 239px;
 }
+
+.text-wrapper {
+   position: relative;
+}
+
+.blk:after {
+font-size: 58px;
+content: '"';
+}
+
+.inside {
+    display: table-cell;
+    vertical-align: middle;
+  }
