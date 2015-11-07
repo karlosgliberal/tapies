@@ -1,8 +1,6 @@
 $( function() {
-window.URL || (window.URL = window.webkitURL || window.msURL || window.oURL);
-
-//normalize navigator.getUserMedia
-navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+  window.URL || (window.URL = window.webkitURL || window.msURL || window.oURL);
+  navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
   var ref = new Firebase("https://tachikoma.firebaseio.com/datos");
   var loopFrases;
   var frasesRef = ref.child("frases");
@@ -76,7 +74,6 @@ navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia
             });
             contador = 0;
           } else {
-            console.log(contador);
             contador++;
           }
           $('.human').fadeIn();
@@ -104,31 +101,13 @@ navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia
 
   $('.human').hide();
   var humanosVivos = function(frase){
-    //$('canvas').remove();
-    miMundo.action('pause');
-    // criaturas.plant.color = [242, 50, 66]
-    // criaturas.plant.type = 'sangre';
-    // var humanMundo = new Submundo();
-    // humanMundo.registerCreature(criaturas.plant);
-    // humanMundo.registerCreature(criaturas.brute);
-    // humanMundo.registerCreature(criaturas.bully);
-    // humanMundo.grid([['sangre', 50], ['brute', 5], ['bully', 5]]);
-    // humanMundo.action('animate');
-
+    miMundo.action('stop');
     $('#sentencia').hide().html(frase.frase).fadeIn('slow');
     $('.human').fadeIn();
   }
 
   var humanosMuerto = function(){
-    //$('canvas').remove();
-    // criaturas.plant.color = [242, 50, 66]
-    // criaturas.plant.type = 'plant';
-    // var humanMundo = new Submundo();
-    // humanMundo.registerCreature(criaturas.plant);
-    // humanMundo.registerCreature(criaturas.brute);
-    // humanMundo.registerCreature(criaturas.bully);
-    // humanMundo.grid([['plant', 50], ['brute', 5], ['bully', 5]]);
-    // humanMundo.action('animate');
+    miMundo.action('animate');
     $('.human').fadeOut();
   }
 
@@ -145,10 +124,4 @@ navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia
       humanosMuerto();
     }
   });
-
-
-
-
-
-
 });
