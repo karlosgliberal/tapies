@@ -52,7 +52,7 @@ var Caras = function(){
      if( ! originalFace && faces.length === 1) {
          originalFace = faces[0];
      }
-     setTimeout(processWebcamVideo, 4000);
+     setTimeout(processWebcamVideo, 50);
   }
   this.canvas = canvas;
   function detectFaces() {
@@ -67,7 +67,7 @@ var Caras = function(){
         for (var i = 0; i < faces.length; i++) {
           var face = faces[i];
 
-          if(face.width >= 40 && contador == 0){
+          if(face.width >= 30 && contador == 100){
             $.get( "/sentencia", function( data ) {
               frasesRef.child(Date.now()).set({
                 frase: data.sentences
@@ -76,6 +76,10 @@ var Caras = function(){
             humanosRef.set({
               vivo:true
             });
+            contador = 0;
+          } else {
+            console.log(contador);
+            contador++;
           }
           context.fillRect(face.x, face.y, face.width, face.height);
         }

@@ -22,30 +22,8 @@ $( function() {
   }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
   });
-  
-  $('.human').hide();
-  $(document).bind('keydown', 'a', function assets() {
-    loopFrases = setInterval(function(){
-      $.get( "/sentencia", function( data ) {
-        frasesRef.child(Date.now()).set({
-          frase: data.sentences
-        });
-      });
-    }, 9000);
-    humanosRef.set({
-      vivo:true
-    });
-    return false;
-  });
-
-  $(document).bind('keydown', 's', function assets() {
-    clearInterval(loopFrases);
-    humanosRef.set({
-      vivo:false
-    });
-  });
-
-  var humanosVivos = function(frase){
+ $('.human').hide();
+ var humanosVivos = function(frase){
     //$('canvas').remove();
     miMundo.action('pause');
     // criaturas.plant.color = [242, 50, 66]
