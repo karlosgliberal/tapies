@@ -4,7 +4,7 @@
 
   criaturas.plant = {
     type: 'plant',
-    color: [173, 173, 173],
+    color: [194, 194, 194],
     size: 10,
     initialEnergy: 5,
     maxEnergy: 20,
@@ -26,7 +26,8 @@
 
   criaturas.bully = {
     type: 'bully',
-    color: [147, 112, 219],
+    // color: [116, 106, 117],
+    color: [67, 101, 117],
     initialEnergy: 20,
     reproduceLv: 0.6,
     sustainability: 3
