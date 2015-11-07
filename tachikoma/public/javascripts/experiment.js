@@ -10,6 +10,7 @@ navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia
 var ref = new Firebase("https://tachikoma.firebaseio.com/datos");
 var frasesRef = ref.child("frases");
 var humanosRef = ref.child("humanos");
+var contador = 0;
 
 var Caras = function(){
   video = document.createElement('video'),
@@ -65,7 +66,8 @@ var Caras = function(){
       } else {
         for (var i = 0; i < faces.length; i++) {
           var face = faces[i];
-          if(face.width >= 40){
+
+          if(face.width >= 40 && contador == 0){
             $.get( "/sentencia", function( data ) {
               frasesRef.child(Date.now()).set({
                 frase: data.sentences
