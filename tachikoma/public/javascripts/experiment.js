@@ -44,6 +44,7 @@ var Caras = function(){
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       faces = detectFaces();
       if(faces.length == 0){
+        $('.human').fadeOut();
         humanosRef.set({
           vivo:false
         });
@@ -67,7 +68,7 @@ var Caras = function(){
         for (var i = 0; i < faces.length; i++) {
           var face = faces[i];
 
-          if(face.width >= 30 && contador == 50){
+          if(face.width >= 30 && contador == 80){
             $.get( "/sentencia", function( data ) {
               frasesRef.child(Date.now()).set({
                 frase: data.sentences
@@ -81,6 +82,7 @@ var Caras = function(){
             console.log(contador);
             contador++;
           }
+          $('.human').fadeIn();
           context.fillRect(face.x, face.y, face.width, face.height);
         }
       }
