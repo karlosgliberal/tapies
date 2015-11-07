@@ -13,17 +13,15 @@ $( function() {
   miMundo.action('animate');
 
   var miCara = new Caras();
-  var detectarCaras = miCara.detectFaces();
-
-  console.log(detectarCaras);
 
   humanosRef.on("value", function(snapshot) {
     estanVivos = snapshot.val();
   }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
   });
- $('.human').hide();
- var humanosVivos = function(frase){
+  
+  $('.human').hide();
+  var humanosVivos = function(frase){
     //$('canvas').remove();
     miMundo.action('pause');
     // criaturas.plant.color = [242, 50, 66]
@@ -41,14 +39,14 @@ $( function() {
 
   var humanosMuerto = function(){
     //$('canvas').remove();
-    criaturas.plant.color = [242, 50, 66]
-    criaturas.plant.type = 'plant';
-    var humanMundo = new Submundo();
-    humanMundo.registerCreature(criaturas.plant);
-    humanMundo.registerCreature(criaturas.brute);
-    humanMundo.registerCreature(criaturas.bully);
-    humanMundo.grid([['plant', 50], ['brute', 5], ['bully', 5]]);
-    humanMundo.action('animate');
+    // criaturas.plant.color = [242, 50, 66]
+    // criaturas.plant.type = 'plant';
+    // var humanMundo = new Submundo();
+    // humanMundo.registerCreature(criaturas.plant);
+    // humanMundo.registerCreature(criaturas.brute);
+    // humanMundo.registerCreature(criaturas.bully);
+    // humanMundo.grid([['plant', 50], ['brute', 5], ['bully', 5]]);
+    // humanMundo.action('animate');
     $('.human').fadeOut();
   }
 
