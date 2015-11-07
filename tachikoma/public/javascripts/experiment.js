@@ -67,7 +67,7 @@ var Caras = function(){
         for (var i = 0; i < faces.length; i++) {
           var face = faces[i];
 
-          if(face.width >= 30 && contador == 100){
+          if(face.width >= 30 && contador == 50){
             $.get( "/sentencia", function( data ) {
               frasesRef.child(Date.now()).set({
                 frase: data.sentences
@@ -88,8 +88,4 @@ var Caras = function(){
 
 }
 
-Caras.prototype.detectFaces = function(argument){
-  var canvas = this.canvas;
-  return ccv.detect_objects({canvas : (ccv.pre(canvas)), cascade: cascade, interval: 2, min_neighbors: 1});
-};
 
