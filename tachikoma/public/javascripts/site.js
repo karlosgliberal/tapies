@@ -77,7 +77,6 @@ $( function() {
               });
               contador = 0;
             } else {
-              console.log(contador);
               contador++;
             }
             $('.human').fadeIn();
