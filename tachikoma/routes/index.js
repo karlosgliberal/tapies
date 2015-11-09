@@ -24,6 +24,9 @@ module.exports = function(app) {
   app.get('/', validate, function(req, res){
     res.render('index', { sentences: generate(4) });
   });
+  app.get('/cam', validate, function(req, res){
+    res.render('cam', { sentences: generate(4) });
+  });
   app.get('/sentencia', validate, function(req, res){
     res.json({ sentences: generate(4) });
   });
