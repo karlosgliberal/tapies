@@ -12,7 +12,7 @@ $( function() {
   var contar = {};
   contar.cuenta = 0;
 
-  var Caras = function(){
+var Caras = function(){
   video = document.createElement('video'),
   canvas = document.querySelector('#video'),
   context = canvas.getContext('2d');
@@ -129,16 +129,11 @@ var mandarCorreo = function(){
 
 }
 
-
-
-  // var miMundo = new Submundo();
-  // miMundo.registerCreature(criaturas.plant);
-  // miMundo.registerCreature(criaturas.brute);
-  // miMundo.registerCreature(criaturas.bully);
-  // miMundo.grid([['plant', 50], ['brute', 5], ['bully', 5]]);
-  // miMundo.action('animate');
-
-  var miCara = new Caras();
+  var pathname = window.location.pathname;
+  console.log(pathname);
+  if(pathname == "/cam"){
+    var miCara = new Caras();
+  }
 
   humanosRef.on("value", function(snapshot) {
     estanVivos = snapshot.val();
