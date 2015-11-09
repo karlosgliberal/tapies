@@ -92,7 +92,7 @@ var mandarCorreo = function(){
         for (var i = 0; i < faces.length; i++) {
           var face = faces[i];
 
-          if(face.width >= 30 && contador == 60){
+          if(face.width >= 5 && contador == 60){
             $.get( "/sentencia", function( data ) {
               frasesRef.child(Date.now()).set({
                 frase: data.sentences
