@@ -1,10 +1,3 @@
-// -----------------------------------------------
-//   LOREM METAPHORPSUM: a generator of metaphor
-// -----------------------------------------------
-// created by Kyle Stetz -> kylestetz@gmail.com
-// and released under the MIT license.
-// -----------------------------------------------
-
 var express = require('express')
   , routes = require('./routes')
   , indexRoutes = require('./routes/index')
