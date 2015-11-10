@@ -8,8 +8,12 @@ $( function() {
   var contadorRef = ref.child("contador");
   var contador = 0;
   var estanVivos;
+  var btc;
   var contar = {};
   contar.cuenta = 0;
+
+
+
 
   var Caras = function(){
     video = document.createElement('video'),
@@ -69,7 +73,8 @@ $( function() {
             if(face.width >= 5 && contador == 60){
               $.get( "/sentencia", function( data ) {
                 frasesRef.child(Date.now()).set({
-                  frase: data.sentences
+                  frase: data.sentences,
+                  fecha: moment().format()
                 });
               });
               humanosRef.set({
