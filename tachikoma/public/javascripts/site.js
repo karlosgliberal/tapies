@@ -70,7 +70,7 @@ $( function() {
           for (var i = 0; i < faces.length; i++) {
             var face = faces[i];
 
-            if(face.width >= 5 && contador == 60){
+            if(face.width >= 2 && contador == 15){
               $.get( "/sentencia", function( data ) {
                 frasesRef.child(Date.now()).set({
                   frase: data.sentences,
@@ -82,6 +82,7 @@ $( function() {
               });
               contador = 0;
             } else {
+              console.log(contador);
               contador++;
             }
             $('.human').fadeIn();
